@@ -2,16 +2,28 @@ import React from 'react'
 import Contact from '../Contact/Contact'
 import css from './ContactList.module.css'
 import { useSelector } from 'react-redux';
-import { selectFilteredContacts } from '../../redux/filtersSlice';
+import { selectFilteredContacts, selectNameFilter } from '../../redux/filtersSlice';
 import ErrorMessage from '../ErrorMessage';
-import { selectContactError} from '../../redux/contactsSlice';
+import { selectContactError, selectContacts } from '../../redux/contactsSlice';
 
 
 
 const ContactList = () => {
 
+  // const contacts = useSelector(selectContacts);
+  // const filter = useSelector(selectNameFilter);
   const error = useSelector(selectContactError);
-  const filteredContacts = useSelector(selectFilteredContacts);
+  const filteredContacts = useSelector(selectFilteredContacts)
+
+  // const filteredContacts = useMemo(
+  //   () =>
+  //   contacts.items.filter
+  //   (contact =>
+  //     contact.name && contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+  //     contact.number && contact.number.toLowerCase().includes(filter.toLowerCase())
+  // ),
+  // [contacts, filter]
+  // )
   
 
   return (
